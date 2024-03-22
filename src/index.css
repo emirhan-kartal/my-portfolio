@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'MyFont';
+    font-style: normal;
+    src: url(resources/fonts/SulphurPoint-Regular.ttf);
+  }
+  html {
+    @apply font-sulphur;
+  }
+}
+@layer components {
+  .nav-btn {
+    @apply p-2 text-2xl text-black lg:text-lg block  lg:p-0 lg:text-white transition duration-300 hover:scale-105;
+  }
+  .fa-lg{
+    @apply text-xl;
+  }
+  .admin-icon {
+    @apply text-good-gray fa-lg px-[14px] py-[12px] rounded-md;
+
+  }
+
+}
