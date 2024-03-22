@@ -22,12 +22,12 @@ export default function Footer() {
                 <Button
                     type="social"
                     icon={Instagram}
-                    href="https://www.instagram.com/emirhn.kartal/"
+                    href="https://www.linkedin.com/in/emirhan-kartal-612ab618a/"
                 />
                 <Button
                     type="social"
                     icon={Linkedin}
-                    href="https://www.instagram.com/emirhn.kartal/"
+                    href="https://github.com/emirhan-kartal"
                 />
             </div>
             <div className="text-center mt-10 text-gray-200 justify-self-end">
