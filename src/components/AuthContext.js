@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
         if (token && username) {
             axios
                 .post(
-                    "http://localhost:3001/verify/",
+                    "https://my-portfolio-expressjs.onrender.com/verify/",
                     {
                         token: token,
                         username: username,
