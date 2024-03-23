@@ -18,6 +18,7 @@ import ProjectList from "./components/ProjectList";
 function App() {
     const location = useLocation();
     const isAdminRoute = location.pathname.includes("/admin");
+    console.log("test")
     return (
         /* <div className="font-[MyFont]">
             <Sidenav />
