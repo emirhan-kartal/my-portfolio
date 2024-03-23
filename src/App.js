@@ -9,9 +9,7 @@ import AboutMe from "./components/pages/AboutMe";
 import Contact from "./components/pages/Contact";
 import ProjectDetails from "./components/pages/ProjectDetails";
 import LoginForm from "./components/LoginForm";
-import AuthProvider from "./components/AuthHook";
 import AdminPanel from "./components/pages/AdminPanel";
-import { ProjectProvider } from "./components/ProjectHook";
 import EditProjectForm from "./components/EditProjectForm";
 
 import { ProjectForm, ProjectList } from "./components";
