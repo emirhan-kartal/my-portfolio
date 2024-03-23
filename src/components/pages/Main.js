@@ -12,7 +12,7 @@ function Main() {
             >
                 <div className="flex flex-col gap-y-4  cursor-default lg:gap-y-8 lg:w-96 ">
                     <h3 className="mt-7">Personal Portfolio</h3>
-                    <h1 className="text-6xl font-bold g-[4rem]">
+                    <h1 className="text-5xl font-bold g-[4rem]">
                         Frontend Development
                     </h1>
                     <p className="leading-8 text-xl">
