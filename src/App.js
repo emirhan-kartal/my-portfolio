@@ -9,73 +9,56 @@ import AboutMe from "./components/pages/AboutMe";
 import Contact from "./components/pages/Contact";
 import ProjectDetails from "./components/pages/ProjectDetails";
 import LoginForm from "./components/LoginForm";
-import AuthProvider from "./components/AuthContext";
+import AuthProvider from "./components/AuthHook";
 import AdminPanel from "./components/pages/AdminPanel";
-import { ProjectProvider } from "./components/ProjectsContext";
+import { ProjectProvider } from "./components/ProjectHook";
 import EditProjectForm from "./components/EditProjectForm";
-import ProjectForm from "./components/ProjectForm";
-import ProjectList from "./components/ProjectList";
+
+import { ProjectForm, ProjectList } from "./components";
+
 function App() {
     const location = useLocation();
     const isAdminRoute = location.pathname.includes("/admin");
-    console.log("test")
+
     return (
         /* <div className="font-[MyFont]">
             <Sidenav />
         </div> */
 
         <div className=" mx-auto h-screen font-[MyFont]">
-            {!isAdminRoute && <Header />}{" "}
+            {!isAdminRoute ? <Header /> : undefined}
             <Routes>
                 <Route
                     path="/"
                     element={
                         <>
-                            <Main />{" "}
-                            <ProjectProvider>
-                                <Portfolio type="section" />
-                            </ProjectProvider>
+                            <Main />
+
+                            <Portfolio type="section" />
                         </>
                     }
                 />
                 <Route path="/about" element={<AboutMe />} />
 
-                <Route
-                    path="/portfolio"
-                    element={
-                        <ProjectProvider>
-                            <Portfolio type="page" />
-                        </ProjectProvider>
-                    }
-                />
+                <Route path="/portfolio" element={<Portfolio type="page" />} />
                 <Route
                     path="/projects/:projectId"
-                    element={
-                        <ProjectProvider>
-                            <ProjectDetails />
-                        </ProjectProvider>
-                    }
+                    element={<ProjectDetails />}
                 />
                 <Route
                     path="/admin/projects/:projectId" //this is editing
                     element={
-                        <AuthProvider>
-                            <AdminPanel>
-                                <ProjectProvider>
-                                    <EditProjectForm />
-                                </ProjectProvider>
-                            </AdminPanel>
-                        </AuthProvider>
+                        <AdminPanel>
+                            <EditProjectForm />
+                        </AdminPanel>
                     }
                 />
                 <Route
                     path="/admin/projects/add"
                     element={
-                        <AuthProvider>
-                            <AdminPanel>
-                                <ProjectForm />
-                            </AdminPanel>
-                        </AuthProvider>
+                        <AdminPanel>
+                            <ProjectForm />
+                        </AdminPanel>
                     }
                 />
 
@@ -84,28 +67,17 @@ function App() {
                 <Route
                     path="/admin"
                     element={
-                        <AuthProvider>
-                            <ProjectProvider>
-                                <AdminPanel>
-                                    <ProjectList
-                                        type="admin"
-                                        itemsPerPage={9}
-                                        className="flex flex-col w-full h-[85vh] justify-start "
-                                        layout="admin"
-                                    ></ProjectList>{" "}
-                                </AdminPanel>
-                            </ProjectProvider>
-                        </AuthProvider>
+                        <AdminPanel>
+                            <ProjectList
+                                type="admin"
+                                itemsPerPage={9}
+                                className="flex flex-col w-full h-[85vh] justify-start "
+                                layout="admin"
+                            ></ProjectList>{" "}
+                        </AdminPanel>
                     }
                 />
-                <Route
-                    path="/login"
-                    element={
-                        <AuthProvider>
-                            <LoginForm />
-                        </AuthProvider>
-                    }
-                />
+                <Route path="/login" element={<LoginForm />} />
             </Routes>
             {!isAdminRoute && <ContactSection />}{" "}
             {!isAdminRoute && <Footer></Footer>}

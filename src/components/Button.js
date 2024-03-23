@@ -1,3 +1,5 @@
+// Replace if statements with switch case
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -9,6 +11,14 @@ function ButtonTypeProperties(type) {
         return " ";
     }
 }
+
+const ButtonType = {
+    transparent: "bg-transparent border-gray-50 border-2 border-solid ",
+    red: "bg-red-button ",
+    submit: "bg-red-button ",
+    social: " ",
+};
+
 export default function Button({
     text,
     onClick,
@@ -17,7 +27,8 @@ export default function Button({
     to,
     icon,
     href,
-    onSubmit,chosenButton
+    onSubmit,
+    chosenButton,
 }) {
     if (type !== "social" && type !== "admin-icon") {
         return (
@@ -34,20 +45,24 @@ export default function Button({
                 >
                     {text}
                 </button>
-            </Link> //bozulmuş olabilir kontrol et sonra
+            </Link> // might be broken. Check this
         );
     } else if (type === "admin-icon") {
         return (
             <Link
                 to={to}
                 className={
-                    " w-full md:flex md:items-center transition duration-500 hover:bg-white group rounded-lg " + (chosenButton === this ? "bg-white" : "") + 
+                    " w-full md:flex md:items-center transition duration-500 hover:bg-white group rounded-lg " +
+                    (chosenButton === this ? "bg-white" : "") +
                     className
                 }
             >
-                <FontAwesomeIcon icon={icon} className="admin-icon text-white group-hover:text-blue-700" />{" "}
+                <FontAwesomeIcon
+                    icon={icon}
+                    className="admin-icon text-white group-hover:text-blue-700"
+                />{" "}
                 <div className="hidden md:block text-white group-hover:text-blue-700">
-                    {text ? text :"#Title"}
+                    {text ? text : "#Title"}
                 </div>
             </Link>
         );

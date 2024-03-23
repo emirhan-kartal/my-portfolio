@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { json, useParams } from "react-router";
-import { useProjectsContext } from "./ProjectsContext";
+import { useProjectsContext } from "./ProjectHook";
 import AuthenticatedComponent from "./AuthenticationHOC";
 import axios from "axios";
 

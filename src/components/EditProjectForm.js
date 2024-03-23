@@ -1,11 +1,11 @@
 import { useParams } from "react-router";
 import ProjectForm from "./ProjectForm";
-import { useProjectsContext } from "./ProjectsContext";
+import { useProjects } from "./ProjectHook";
 
 export default function EditProjectForm() {
     const params = useParams();
     const projectId = params.projectId;
-    const { projects, loading } = useProjectsContext();
+    const [projects, loading] = useProjects();
     if (loading) {
         return <div>Loading...</div>;
     }

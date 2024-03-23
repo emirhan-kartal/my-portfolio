@@ -17,9 +17,6 @@ import {
     faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
-import ProjectCard from "../ProjectCard";
-import Pagination from "../ProjectList";
-import ProjectForm from "../ProjectForm";
 import AuthenticatedComponent from "../AuthenticationHOC";
 
 const AdminPanel = ({ children }) => {

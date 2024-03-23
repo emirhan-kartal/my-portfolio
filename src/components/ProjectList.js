@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProjectCard from "./ProjectCard";
-import { useProjectsContext } from "./ProjectsContext";
+import { useProjects, useProjectsContext } from "./ProjectHook";
 import Button from "./Button";
 const ProjectList = ({ layout, className, type, itemsPerPage = 4 }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { projects, setProjects } = useProjectsContext();
+    const [projects, loading] = useProjects();
     const totalPages = Math.ceil(projects.length / itemsPerPage);
 
     const handleClick = (pageNumber) => {
@@ -62,7 +62,11 @@ const ProjectList = ({ layout, className, type, itemsPerPage = 4 }) => {
     return type === "admin" ? (
         <div className="flex w-full flex-col items-center">
             <div className="w-full h-[6vh] bg-good-gray flex items-center justify-end">
-                <Button to="/admin/projects/add" text = "Add New Project " className="bg-green-500 hover:bg-green-700 text-white w-1/2 font-bold py-2 px-4 h-10/12 rounded ">
+                <Button
+                    to="/admin/projects/add"
+                    text="Add New Project "
+                    className="bg-green-500 hover:bg-green-700 text-white w-1/2 font-bold py-2 px-4 h-10/12 rounded "
+                >
                     Add New Project
                 </Button>
             </div>

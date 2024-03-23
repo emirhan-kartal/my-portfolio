@@ -2,10 +2,9 @@ import React from "react";
 import HeaderTitle from "../HeaderTitle";
 import { useParams } from "react-router";
 import Markdown from "react-markdown";
-import { useProjectsContext } from "../ProjectsContext";
-
+import { useProjects } from "../ProjectHook";
 const ProjectDetails = (props) => {
-    const { projects, loading } = useProjectsContext();
+    const [projects, loading] = useProjects();
     const { projectId } = useParams();
 
     if (loading) {
@@ -48,10 +47,7 @@ const ProjectDetails = (props) => {
                         ),
                     }}
                 >
-                    {" " +
-                        content +
-                        "\n" +
-                        "![alt text](https://fastly.picsum.photos/id/22/400/500.jpg?hmac=BOJ-dXqoE5e0YvtRXISpZ8AxOxhISmU8vp4Rs9O2bOU) "}
+                    {content}
                 </Markdown>
                 <h3 className="text-md font-bold text-gray-400 self-start">
                     Tags:

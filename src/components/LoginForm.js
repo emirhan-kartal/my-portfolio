@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import axios from "axios";
-import AuthProvider, { useAuthContext } from "./AuthContext";
+import { useAuth } from "./AuthHook";
 import { useNavigate } from "react-router";
 
 const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
-    const { isAuthenticated, setIsAuthenticated } = useAuthContext();
+    const [isAuthenticated, loading, setIsAuthenticated] = useAuth();
     const navigate = useNavigate();
+
     useEffect(() => {
         if (isAuthenticated) {
             navigate("/admin");
         }
-    });
+    },[loading]);
+    if (loading) return <div>Loading...</div>;
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -29,7 +31,7 @@ const LoginForm = () => {
         //send request to server with axios
         axios
             .post(
-                "https://my-portfolio-expressjs.onrender.com/login",
+                "http://localhost:3001/login/",
                 {
                     username: username,
                     password: password,
