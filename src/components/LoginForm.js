@@ -31,7 +31,7 @@ const LoginForm = () => {
         //send request to server with axios
         axios
             .post(
-                "http://localhost:3001/login/",
+                "https://my-portfolio-expressjs.onrender.com/login/",
                 {
                     username: username,
                     password: password,
