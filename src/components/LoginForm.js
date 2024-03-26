@@ -38,10 +38,6 @@ const LoginForm = () => {
                 },
                 {
                     withCredentials: true,
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                        "Content-Type": "application/json",
-                    },
                 }
             )
             .then((response) => {
