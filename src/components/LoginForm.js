@@ -41,6 +41,7 @@ const LoginForm = () => {
                 }
             )
             .then((response) => {
+                console.log(response.status + " == " + response.data)
                 if (response.status === 200) {
                     setIsAuthenticated(true);
                     navigate("/admin");
