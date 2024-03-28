@@ -9,6 +9,7 @@ const AuthenticatedComponent = (Component) => {
 
         useEffect(() => {
             if (!isAuthenticated && !loading) {
+                console.log("boyle bir sey oldu")
                 navigate("/login");
             }
         }, [loading,isAuthenticated]);
