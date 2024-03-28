@@ -14,7 +14,7 @@ export const useAuth = () => {
         if (token && username) {
             axios
                 .post(
-                    "https://emirhan-kartal.com.tr:3001/verify/",
+                    "https://my-portfolio-expressjs.onrender.com/verify/",
                     {
                         token: token,
                         username: username,
