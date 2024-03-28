@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { json, useParams } from "react-router";
+import { json, useNavigate, useParams } from "react-router";
 import { useProjectsContext } from "./ProjectHook";
 import AuthenticatedComponent from "./AuthenticationHOC";
 import axios from "axios";
@@ -13,6 +13,7 @@ const ProjectForm = ({ project }) => {
     const [tags, setTags] = useState("");
     const [content, setContent] = useState("");
     const [id, setId] = useState("");
+    const navigate = useNavigate();
     useEffect(() => {
         if (project) {
             setTitle(project.title);
@@ -48,6 +49,15 @@ const ProjectForm = ({ project }) => {
         // Handle form submission logic here
         // You can access the form values using the state variables (title, label, imageLink, keys, content)
     };
+    const handleDelete = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:3001/projects/delete", { id }).then((response) => {
+            if (response.status === 200) {
+                alert("Project deleted successfully");
+                navigate("/admin");
+            }
+        });
+    }
 
     return (
         <div className="flex flex-col w-full items-center">
@@ -101,6 +111,7 @@ const ProjectForm = ({ project }) => {
                         type="button"
                         text="Delete"
                         className="bg-red-600"
+                        onClick={handleDelete}
                     />
                 </div>
             </form>

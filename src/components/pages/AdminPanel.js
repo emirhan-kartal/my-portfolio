@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 import AuthenticatedComponent from "../AuthenticationHOC";
+import { useNavigate } from "react-router";
 
 const AdminPanel = ({ children }) => {
     const [chosenButton, setChosenButton] = useState();
@@ -37,6 +38,8 @@ const AdminPanel = ({ children }) => {
                             type="admin-icon"
                             icon={faNewspaper}
                             text="Projects"
+                            to="/admin"
+
                         />
                     </li>
                     <li>

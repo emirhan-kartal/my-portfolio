@@ -32,7 +32,7 @@ export default function Button({
 }) {
     if (type !== "social" && type !== "admin-icon") {
         return (
-            <Link to={to} className="w-full lg:w-40">
+            <Link to={to} className="w-full lg:w-48">
                 <button
                     onClick={onClick}
                     onSubmit={onSubmit}
@@ -53,7 +53,7 @@ export default function Button({
                 to={to}
                 className={
                     " w-full md:flex md:items-center transition duration-500 hover:bg-white group rounded-lg " +
-                    (chosenButton === this ? "bg-white" : "") +
+                    (chosenButton === this ? " bg-whit text-blue-700" : "") +
                     className
                 }
             >

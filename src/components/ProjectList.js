@@ -65,7 +65,7 @@ const ProjectList = ({ layout, className, type, itemsPerPage = 4 }) => {
                 <Button
                     to="/admin/projects/add"
                     text="Add New Project "
-                    className="bg-green-500 hover:bg-green-700 text-white w-1/2 font-bold py-2 px-4 h-10/12 rounded "
+                    className="bg-green-500 hover:bg-green-700 text-white w-full font-bold py-2 px-4 h-10/12 rounded "
                 >
                     Add New Project
                 </Button>

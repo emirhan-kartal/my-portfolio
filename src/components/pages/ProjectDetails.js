@@ -3,6 +3,7 @@ import HeaderTitle from "../HeaderTitle";
 import { useParams } from "react-router";
 import Markdown from "react-markdown";
 import { useProjects } from "../ProjectHook";
+import { Helmet } from "react-helmet";
 const ProjectDetails = (props) => {
     const [projects, loading] = useProjects();
     const { projectId } = useParams();
@@ -16,6 +17,13 @@ const ProjectDetails = (props) => {
 
     return (
         <>
+        <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={label} />
+            <meta name="keywords" content={tags} />
+            <meta name="author" content="Emirhan Kartal" />
+        
+        </Helmet>
             <HeaderTitle title={title} />
 
             <div id="markdown" className="flex flex-col items-center">
@@ -25,7 +33,7 @@ const ProjectDetails = (props) => {
                 </h3>
 
                 <Markdown
-                    className="flex flex-col items-center"
+                    className="flex flex-col items-center w-2/4 text-justify"
                     components={{
                         h1: ({ children }) => (
                             <h1 className="text-4xl font-bold">{children}</h1>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 export default function ProjectCard({
     className,
@@ -20,7 +21,7 @@ export default function ProjectCard({
             className={
                 `h-[400px] w-11/12 bg-cover p-5 text-white flex
             flex-col justify-end rounded-md lg:w-full transition duration-300 
-            hover:scale-105 cursor-pointer ` +
+            hover:scale-[100.5%] cursor-pointer ` +
                 (layout === "admin"
                     ? "  !text-blue-700 bg-good-gray hover:bg-white border-2 border-black !h-[9%] w-full mt-[1%] justify-center rounded-sm  "
                     : "") +
@@ -46,6 +47,7 @@ export default function ProjectCard({
             <h4 className={"text-lg " + (layout === "admin") && " hidden"}>
                 Click to see details
             </h4>
+
         </Link>
     );
 }

@@ -31,13 +31,14 @@ const LoginForm = () => {
         //send request to server with axios
         axios
             .post(
-                "https://my-portfolio-expressjs.onrender.com/login/",
+                "http://localhost:3001/login/",
                 {
                     username: username,
                     password: password,
                 },
                 {
                     withCredentials: true,
+
                 }
             )
             .then((response) => {
@@ -47,6 +48,7 @@ const LoginForm = () => {
                 }
             })
             .catch((error) => {
+                console.log(error)
                 setIsAuthenticated(false);
                 setError(true);
             });
