@@ -15,7 +15,7 @@ const LoginForm = () => {
         if (isAuthenticated) {
             navigate("/admin");
         }
-    },[loading]);
+    }, [loading]);
     if (loading) return <div>Loading...</div>;
 
     const handleUsernameChange = (e) => {
@@ -31,14 +31,13 @@ const LoginForm = () => {
         //send request to server with axios
         axios
             .post(
-                "http://localhost:3001/login/",
+                "http://emirhan-kartal.com.tr/login/",
                 {
                     username: username,
                     password: password,
                 },
                 {
                     withCredentials: true,
-
                 }
             )
             .then((response) => {
@@ -48,7 +47,7 @@ const LoginForm = () => {
                 }
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
                 setIsAuthenticated(false);
                 setError(true);
             });
