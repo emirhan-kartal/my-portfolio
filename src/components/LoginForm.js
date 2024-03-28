@@ -31,7 +31,7 @@ const LoginForm = () => {
         //send request to server with axios
         axios
             .post(
-                "http://emirhan-kartal.com.tr/login/",
+                "https://emirhan-kartal.com.tr/login/",
                 {
                     username: username,
                     password: password,

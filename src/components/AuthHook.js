@@ -14,7 +14,7 @@ export const useAuth = () => {
         if (token && username) {
             axios
                 .post(
-                    "http://emirhan-kartal.com.tr:3001/verify/",
+                    "https://emirhan-kartal.com.tr:3001/verify/",
                     {
                         token: token,
                         username: username,
