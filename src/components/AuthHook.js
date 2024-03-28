@@ -11,6 +11,7 @@ export const useAuth = () => {
     useEffect(() => {
         const token = Cookies.get("token");
         const username = Cookies.get("username");
+        console.log(token + " " + username)
         if (token && username) {
             axios
                 .post(
