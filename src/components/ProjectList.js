@@ -22,7 +22,7 @@ const ProjectList = ({ layout, className, type, itemsPerPage = 4 }) => {
     const toReturn = (
         <>
             {projects.length === 0 && (
-                <h1 className="text-4xl">You havent't added projects yet.</h1>
+                <h1 className="text-4xl">You haven't added projects yet.</h1>
             )}
             <div className={className}>
                 {currentItems.map((project) => {

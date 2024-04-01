@@ -6,7 +6,7 @@ import HeaderTitle from "../HeaderTitle";
 import { useProjects } from "../ProjectHook";
 
 export default function Portfolio({ type }) {
-    const [projects,loading] = useProjects();
+    const [projects, loading] = useProjects();
     return (
         <>
             {type === "page" && <HeaderTitle title="Portfolio" />}
@@ -36,34 +36,7 @@ export default function Portfolio({ type }) {
                      lg:grid-rows-portfolio-row lg:grid-cols-portfolio-col
                       lg:justify-center lg:gap-16"
                     type={type}
-                >
-                    {/*                     <ProjectCard
-                        image={Rectangle}
-                        title="Deneme"
-                        label="1 labeli"
-                    />
-                    <ProjectCard
-                        image={Rectangle}
-                        title="Test Again"
-                        label="1 labeli2"
-                    />
-                    <ProjectCard
-                        image={Rectangle}
-                        title="Test Again"
-                        label="Pr1oje labeli2"
-                    />
-                    <ProjectCard
-                        image={Rectangle}
-                        title="Test Again"
-                        label="Pr1oje labeli2"
-                    />
-                    <ProjectCard
-                        image={Rectangle}
-                        title="Test Again"
-                        label="Pr1oje labeli2"
-                    />
- */}{" "}
-                </ProjectList>
+                ></ProjectList>
             </div>
         </>
     );
