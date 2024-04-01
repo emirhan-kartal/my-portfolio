@@ -1,7 +1,5 @@
-import MobileBg from "../../resources/bg-mobile.png";
 import Bitmap from "../../resources/Bitmap.png";
 import Button from "../Button";
-import { Link } from "react-router-dom";
 
 function Main() {
     return (
@@ -25,7 +23,7 @@ function Main() {
                         <Button text="Learn More" type="transparent" />     
                     </div>
                 </div>
-                <img src={Bitmap} className="relative -left-6 lg:h-[500px]"></img>
+                <img src={Bitmap} alt="me" className="relative -left-6 lg:h-[500px]"></img>
             </section>
         </>
     );

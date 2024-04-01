@@ -28,9 +28,11 @@ const ProjectForm = ({ project }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const projectJson = { title, label, imageLink, tags, content, id };
+        console.log(projectJson)
+        const componentType = project ? "edit" : "add";
         if (project) {
             axios
-                .post("http://localhost:3001/projects/edit", { projectJson })
+                .post("https://my-portfolio-expressjs.onrender.com/projects/"+componentType, { projectJson })
                 .then((response) => {
                     if (response.status === 200) {
                         alert("Project updated successfully");
@@ -97,7 +99,7 @@ const ProjectForm = ({ project }) => {
                     id="content"
                     value={content}
                     placeholder="Write here..."
-                    className="h-60 resize-none w-full border-gray-500 border-2 rounded-sm outline-none"
+                    className="h-80 resize-none w-full border-gray-500 border-2 rounded-sm outline-none"
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
                 <div className="flex mb-2 gap-x-1">

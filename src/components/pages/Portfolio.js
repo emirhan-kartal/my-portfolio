@@ -1,12 +1,8 @@
-import ProjectCard from "../ProjectCard";
 import Button from "../Button";
-import Rectangle from "../../resources/Rectangle.png";
 import ProjectList from "../ProjectList";
 import HeaderTitle from "../HeaderTitle";
-import { useProjects } from "../ProjectHook";
 
 export default function Portfolio({ type }) {
-    const [projects, loading] = useProjects();
     return (
         <>
             {type === "page" && <HeaderTitle title="Portfolio" />}

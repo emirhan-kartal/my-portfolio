@@ -1,10 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import Rectangle from "../../resources/Rectangle.png";
-import ProjectList from "../ProjectList";
+
 
 import {
-    faBorderAll,
     faInbox,
     faChartLine,
     faWallet,
@@ -18,10 +15,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 import AuthenticatedComponent from "../AuthenticationHOC";
-import { useNavigate } from "react-router";
 
 const AdminPanel = ({ children }) => {
-    const [chosenButton, setChosenButton] = useState();
+    const [chosenButton] = useState();
     return (
         <div className="flex">
             <section

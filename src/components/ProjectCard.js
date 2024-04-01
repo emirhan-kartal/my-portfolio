@@ -23,7 +23,7 @@ export default function ProjectCard({
             flex-col justify-end rounded-md lg:w-full transition duration-300 
             hover:scale-[100.5%] cursor-pointer ` +
                 (layout === "admin"
-                    ? "  !text-blue-700 bg-good-gray hover:bg-white border-2 border-black !h-[9%] w-full mt-[1%] justify-center rounded-sm  "
+                    ? "  !text-blue-700 bg-good-gray hover:bg-white border-2 border-black !h-[10%] w-full justify-center rounded-sm  "
                     : "") +
                 className
             }

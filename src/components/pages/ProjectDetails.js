@@ -27,13 +27,13 @@ const ProjectDetails = (props) => {
             <HeaderTitle title={title} />
 
             <div id="markdown" className="flex flex-col items-center">
-                <h1 className="text-5xl font-bold mt-12 ">{title}</h1>
+                <h1 className="text-5xl font-bold mt-12 text-center">{title}</h1>
                 <h3 className="text-xl font-semibold text-gray-400 mb-4">
                     {label}
                 </h3>
 
                 <Markdown
-                    className="flex flex-col items-center w-2/4 text-justify"
+                    className="flex flex-col w-3/4 text-justify lg:w-1/2"
                     components={{
                         h1: ({ children }) => (
                             <h1 className="text-4xl font-bold">{children}</h1>
