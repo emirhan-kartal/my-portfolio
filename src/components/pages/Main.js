@@ -24,10 +24,20 @@ function Main() {
                             text="Download CV"
                             type="transparent"
                             onClick={() => {
-                                axios.get(
-                                    "https://my-portfolio-expressjs.onrender.com/cv"
-                                ).then((res) => {console.log(res.data)}
-                                );
+                                axios({
+                                    url: "https://my-portfolio-expressjs.onrender.com/cv",
+                                    method: "GET",
+                                    responseType: "blob", // Important
+                                }).then((response) => {
+                                    const url = window.URL.createObjectURL(
+                                        new Blob([response.data])
+                                    );
+                                    const link = document.createElement("a");
+                                    link.href = url;
+                                    link.setAttribute("download", "CV-1.pdf"); // or any other extension
+                                    document.body.appendChild(link);
+                                    link.click();
+                                });
                             }}
                         />
                     </div>
