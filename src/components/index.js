@@ -1,4 +1,18 @@
 export { default as Button } from "./Button";
-export { default as ProjectForm } from "./ProjectForm";
 export { default as ProjectList } from "./ProjectList";
-
+export { default as HeaderTitle } from "./HeaderTitle";
+export { default as Input } from "./Input";
+export { default as Portfolio } from "./pages/Portfolio";
+export { default as Main } from "./pages/Main";
+export { default as AboutMe } from "./pages/AboutMe";
+export { default as Contact } from "./pages/Contact";
+export { default as ContactSection } from "./pages/ContactSection";
+export { default as AuthenticationHOC } from "./AuthenticationHOC";
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as EditProjectForm } from "./EditProjectForm";
+export { default as ProjectCard } from "./ProjectCard";
+export { default as ProjectDetails } from "./pages/ProjectDetails";
+export { default as AdminPanel } from "./pages/AdminPanel";
+export { default as LoginForm } from "./LoginForm";
+export { default as ProjectForm } from "./ProjectForm";

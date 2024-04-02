@@ -12,13 +12,6 @@ function ButtonTypeProperties(type) {
     }
 }
 
-const ButtonType = {
-    transparent: "bg-transparent border-gray-50 border-2 border-solid ",
-    red: "bg-red-button ",
-    submit: "bg-red-button ",
-    social: " ",
-};
-
 export default function Button({
     text,
     onClick,
@@ -71,7 +64,7 @@ export default function Button({
         return (
             <a href={href} target="_blank">
                 {" "}
-                <img src={icon} className="h-12 w-12 bg-cover" />
+                <img src={icon} className="h-12 w-12 bg-cover" alt="redirecting-icon" />
             </a>
         );
     }

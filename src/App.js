@@ -1,16 +1,18 @@
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./components/pages/Main";
-import ContactSection from "./components/pages/ContactSection";
-import Portfolio from "./components/pages/Portfolio";
+import {
+    Header,
+    Footer,
+    Main,
+    ContactSection,
+    Portfolio,
+    AboutMe,
+    Contact,
+    ProjectDetails,
+    LoginForm,
+    AdminPanel,
+    EditProjectForm,
+} from "./components/index";
 import { Routes, Route, useLocation } from "react-router";
-import AboutMe from "./components/pages/AboutMe";
-import Contact from "./components/pages/Contact";
-import ProjectDetails from "./components/pages/ProjectDetails";
-import LoginForm from "./components/LoginForm";
-import AdminPanel from "./components/pages/AdminPanel";
-import EditProjectForm from "./components/EditProjectForm";
 
 import { ProjectForm, ProjectList } from "./components";
 
