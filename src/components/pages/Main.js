@@ -1,6 +1,6 @@
 import Bitmap from "../../resources/Bitmap.png";
 import Button from "../Button";
-
+import axios from "axios";
 function Main() {
     return (
         <>
@@ -20,10 +20,23 @@ function Main() {
                     <div className="flex items-center gap-x-4">
                         <Button text="About" type="red" to="/about" />
 
-                        <Button text="Learn More" type="transparent" />     
+                        <Button
+                            text="Download CV"
+                            type="transparent"
+                            onClick={() => {
+                                axios.get(
+                                    "https://my-portfolio-expressjs.onrender.com/cv"
+                                ).then((res) => {console.log(res.data)}
+                                );
+                            }}
+                        />
                     </div>
                 </div>
-                <img src={Bitmap} alt="me" className="relative -left-6 lg:h-[500px]"></img>
+                <img
+                    src={Bitmap}
+                    alt="me"
+                    className="relative -left-6 lg:h-[500px]"
+                ></img>
             </section>
         </>
     );

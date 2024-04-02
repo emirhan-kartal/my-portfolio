@@ -30,7 +30,7 @@ export default function ProjectCard({
         >
             <h2
                 className={
-                    "text-3xl font-semibold " +
+                    "text-3xl font-bold  text-stroke-3" +
                     (layout === "admin" ? "text-xl " : "")
                 }
             >
@@ -44,7 +44,7 @@ export default function ProjectCard({
             >
                 {label}
             </h3>
-            <h4 className={"text-lg " + (layout === "admin") && " hidden"}>
+            <h4 className={"text-lg  " + (layout === "admin") && " hidden"}>
                 Click to see details
             </h4>
 
