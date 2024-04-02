@@ -13,7 +13,7 @@ export default function Portfolio({ type }) {
                         (type === "page" ? " hidden" : "")
                     }
                 >
-                    .<h2 className="text-red-400 text-xl">My Portfolio</h2>
+                    .<h2 className="text-red-600 text-xl">My Portfolio</h2>
                     <h3 className=" text-4xl font-bold">Some of My Work</h3>
                     <p className={"leading-8 text-xl font-semibold "}>
                         Success is not for the faint-hearted. It requires

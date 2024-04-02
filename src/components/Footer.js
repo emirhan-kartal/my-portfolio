@@ -1,6 +1,6 @@
 import Button from "./Button";
-import Instagram from "../resources/linkedin-icon.png";
-import Linkedin from "../resources/github-icon.png";
+import Linkedin from "../resources/linkedin-icon.png";
+import Github from "../resources/github-icon.png";
 export default function Footer() {
     return (
         <footer
@@ -21,20 +21,27 @@ export default function Footer() {
             <div className="flex gap-x-4 mt-10 mb-6 self-center">
                 <Button
                     type="social"
-                    icon={Instagram}
-                    href="https://www.instagram.com/emirhn.kartal/"
+                    icon={Linkedin}
+                    href="https://www.linkedin.com/in/emirhan-kartal-612ab618a/"
                 />
                 <Button
                     type="social"
-                    icon={Linkedin}
-                    href="https://www.instagram.com/emirhn.kartal/"
+                    icon={Github}
+                    href="https://github.com/emirhan-kartal"
                 />
             </div>
             <div className="text-center mt-10 text-gray-200 justify-self-end">
                 @ 2024 Emirhan Kartal | Made using{" "}
                 <a className="text-blue-700 font-bold" href="https://react.dev">
-                    React 
-                </a> & <a className="text-blue-700 font-bold" href="https://tailwindcss.com">TailwindCSS</a>
+                    React
+                </a>{" "}
+                &{" "}
+                <a
+                    className="text-blue-700 font-bold"
+                    href="https://tailwindcss.com"
+                >
+                    TailwindCSS
+                </a>
                 .
             </div>
         </footer>

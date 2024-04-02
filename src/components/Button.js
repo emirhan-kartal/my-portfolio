@@ -60,6 +60,7 @@ export default function Button({
                 <FontAwesomeIcon
                     icon={icon}
                     className="admin-icon text-white group-hover:text-blue-700"
+                    aria-label="icon-with-link"
                 />{" "}
                 <div className="hidden md:block text-white group-hover:text-blue-700">
                     {text ? text : "#Title"}

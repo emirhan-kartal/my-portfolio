@@ -13,18 +13,4 @@ export const useProjects = () => {
     }, []);
 
     return [projects, loading];
-    /* return (<ProjectsContext.Provider value={{ projects,loading }}>
-        {children}
-    </ProjectsContext.Provider>); */
 };
-
-/* export const ProjectsContext = createContext();
-
-export const ProjectProvider = ({children, value}) => {
-    
-    return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>;
-};
-
-export function useProjectProvider() {
-    return useContext(ProjectsContext);
-} */
