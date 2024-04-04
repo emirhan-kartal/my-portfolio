@@ -1,9 +1,10 @@
-import Logo from "../resources/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import useClickOutside from "./hooks/OutsideClickHook";
 function Header() {
     const [sideNavVisible, setSideNavVisible] = useState(false);
 
+    const ref = useClickOutside(() => setSideNavVisible(false), sideNavVisible);
     return (
         <header
             className="flex items-center justify-between fixed w-full 
@@ -16,7 +17,11 @@ function Header() {
             </h1>
             <button
                 className="bg-menu-icon h-11 w-11 bg-cover ml-auto lg:hidden"
-                onClick={() => setSideNavVisible(true)}
+                onClick={(e) => {
+                    e.stopPropagation();
+
+                    setSideNavVisible(true);
+                }}
             ></button>
             <nav
                 className={
@@ -25,6 +30,7 @@ function Header() {
                     ` transition-[width] duration-500 overflow-x-hidden pt-[60px] 
                     lg:w-auto lg:h-auto lg:pt-0 bg-white lg:bg-[#10294C] lg:min-w-[300px] lg:right-auto lg:static`
                 }
+                ref={ref}
             >
                 <ul className="flex ml-4 gap-x-6 items-center flex-col lg:flex-row overflow-hidden">
                     <li

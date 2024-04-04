@@ -41,7 +41,7 @@ const Contact = () => {
                             label="message"
                             placeholder="Message"
                             value={message}
-                            className="h-40 resize-none w-full border-gray-200 border-2 rounded-sm"
+                            className="h-40 resize-none w-full border-gray-200 border-2 rounded-sm p-2"
                             onChange={(e) => setMessage(e.target.value)}
                         />
 

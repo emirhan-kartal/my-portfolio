@@ -2,7 +2,7 @@ import React from "react";
 import HeaderTitle from "../HeaderTitle";
 import { useParams } from "react-router";
 import Markdown from "react-markdown";
-import { useProjects } from "../ProjectHook";
+import { useProjects } from "../hooks/ProjectHook";
 import { Helmet } from "react-helmet";
 const ProjectDetails = (props) => {
     const [projects, loading] = useProjects();

@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 import AuthenticatedComponent from "../AuthenticationHOC";
+import withAuth from "../AuthenticationHOC";
 
 const AdminPanel = ({ children }) => {
     const [chosenButton] = useState();
@@ -100,4 +101,4 @@ const AdminPanel = ({ children }) => {
     );
 };
 
-export default AuthenticatedComponent(AdminPanel);
+export default withAuth(AdminPanel);

@@ -1,36 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { useNavigate } from "react-router";
 import axios from "axios";
-
+import projectFormReducer from "./reducers/projectFormReducer";
 const ProjectForm = ({ project }) => {
-    const [title, setTitle] = useState("");
-    const [label, setLabel] = useState("");
-    const [imageLink, setImageLink] = useState("");
-    const [tags, setTags] = useState("");
-    const [content, setContent] = useState("");
-    const [id, setId] = useState("");
+    const [state, dispatch] = useReducer(projectFormReducer, {
+        title: "",
+        label: "",
+        imageLink: "",
+        tags: "",
+        content: "",
+        id: "",
+    });
+
     const navigate = useNavigate();
     useEffect(() => {
         if (project) {
-            setTitle(project.title);
-            setLabel(project.label);
-            setImageLink(project.imageLink);
-            setTags(project.tags);
-            setContent(project.content);
-            setId(project._id);
+            dispatch({
+                type: "SET_TITLE",
+                title: project.title,
+            });
+            dispatch({
+                type: "SET_LABEL",
+                label: project.label,
+            });
+            dispatch({
+                type: "SET_TAGS",
+                tags: project.tags,
+            });
+            dispatch({
+                type: "SET_IMAGE_LINK",
+                image_link: project.imageLink,
+            });
+            dispatch({
+                type: "SET_CONTENT",
+                content: project.content,
+            });
+            dispatch({
+                type: "SET_ID",
+                id: project._id,
+            });
         }
     }, [project]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const {title, label, imageLink, tags, content, id} = state;
         const projectJson = { title, label, imageLink, tags, content, id };
-        console.log(projectJson)
+        console.log(projectJson);
         const componentType = project ? "edit" : "add";
         if (project) {
             axios
-                .post("https://my-portfolio-expressjs.onrender.com/projects/"+componentType, { projectJson })
+                .post(
+                    "https://my-portfolio-expressjs.onrender.com/projects/" +/** */
+                        componentType,
+                    { projectJson }
+                )
                 .then((response) => {
                     if (response.status === 200) {
                         alert("Project updated successfully");
@@ -38,7 +64,7 @@ const ProjectForm = ({ project }) => {
                 });
         } else {
             axios
-                .post("http://localhost:3001/projects/add", { projectJson })
+                .post("https://my-portfolio-expressjs.onrender.com/projects/add", { projectJson })
                 .then((response) => {
                     if (response.status === 200) {
                         alert("Project added successfully");
@@ -51,15 +77,18 @@ const ProjectForm = ({ project }) => {
     };
     const handleDelete = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/projects/delete", { id }).then((response) => {
-            if (response.status === 200) {
-                alert("Project deleted successfully");
-                navigate("/admin");
-            }
-        });
-    }
+        axios
+            .post("https://my-portfolio-expressjs.onrender.com/projects/delete", { id: state.id})
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Project deleted successfully");
+                    navigate("/admin");
+                }
+            });
+    };
 
     return (
+
         <div className="flex flex-col w-full items-center">
             <form
                 onSubmit={handleSubmit}
@@ -67,38 +96,54 @@ const ProjectForm = ({ project }) => {
             >
                 <Input
                     type="text"
-                    value={title}
+                    value={state.title}
                     placeholder="Title"
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) =>
+                        dispatch({ type: "SET_TITLE", content: e.target.value })
+                    }
                 />
 
                 <Input
                     type="text"
                     placeholder="Label"
-                    value={label}
-                    onChange={(e) => setLabel(e.target.value)}
+                    value={state.label}
+                    onChange={(e) =>
+                        dispatch({ type: "SET_LABEL", content: e.target.value })
+                    }
                 />
 
                 <Input
                     type="text"
                     placeholder="Header Image Link"
-                    value={imageLink}
-                    onChange={(e) => setImageLink(e.target.value)}
+                    value={state.imageLink}
+                    onChange={(e) =>
+                        dispatch({
+                            type: "SET_IMAGE_LINK",
+                            content: e.target.value,
+                        })
+                    }
                 />
 
                 <Input
                     type="text"
-                    value={tags}
+                    value={state.tags}
                     placeholder="Tags"
-                    onChange={(e) => setTags(e.target.value)}
+                    onChange={(e) =>
+                        dispatch({ type: "SET_TAGS", content: e.target.value })
+                    }
                 />
 
                 <textarea
                     id="content"
-                    value={content}
+                    value={state.content}
                     placeholder="Write here..."
                     className="h-80 resize-none w-full border-gray-500 border-2 rounded-sm outline-none"
-                    onChange={(e) => setContent(e.target.value)}
+                    onChange={(e) =>
+                        dispatch({
+                            type: "SET_CONTENT",
+                            content: e.target.value,
+                        })
+                    }
                 ></textarea>
                 <div className="flex mb-2 gap-x-1">
                     <button

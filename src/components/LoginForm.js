@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import axios from "axios";
-import { useAuth } from "./AuthHook";
+import { useAuth } from "./hooks/AuthHook";
 import { useNavigate } from "react-router";
 
 const LoginForm = () => {
@@ -28,10 +28,9 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //send request to server with axios
         axios
             .post(
-                "https://my-portfolio-expressjs.onrender.com/login/",
+                "http://localhost:3001/login" /*https://my-portfolio-expressjs.onrender.com/login/*/,
                 {
                     username: username,
                     password: password,
@@ -41,7 +40,7 @@ const LoginForm = () => {
                 }
             )
             .then((response) => {
-                console.log(response.status + " == " + response.data)
+                console.log(response.status + " == " + response.data);
                 if (response.status === 200) {
                     setIsAuthenticated(true);
                     navigate("/admin");

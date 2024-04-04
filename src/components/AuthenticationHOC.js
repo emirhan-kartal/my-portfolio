@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useAuth } from "./AuthHook";
+import { useAuth } from "./hooks/AuthHook";
 
-const AuthenticatedComponent = (Component) => {
+const withAuth = (Component) => {
     return function WrappedComponent(props) {
         const navigate = useNavigate();
         const [isAuthenticated,loading] = useAuth();
@@ -19,4 +19,4 @@ const AuthenticatedComponent = (Component) => {
         }
     };
 };
-export default AuthenticatedComponent;
+export default withAuth;

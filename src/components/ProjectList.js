@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import ProjectCard from "./ProjectCard";
-import { useProjects, useProjectsContext } from "./ProjectHook";
+import { useProjects, useProjectsContext } from "./hooks/ProjectHook";
 import Button from "./Button";
 const ProjectList = ({ layout, className, type, itemsPerPage = 4 }) => {
     const [currentPage, setCurrentPage] = useState(1);

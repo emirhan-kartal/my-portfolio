@@ -1,9 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-// Create the AuthContext
 
-// Create the AuthProvider component
 export const useAuth = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -11,11 +9,11 @@ export const useAuth = () => {
     useEffect(() => {
         const token = Cookies.get("token");
         const username = Cookies.get("username");
-        console.log(token + " " + username)
+        console.log(token + " " + username);
         if (token && username) {
             axios
                 .post(
-                    "https://my-portfolio-expressjs.onrender.com/verify/",//localhost will be 
+                    "https://my-portfolio-expressjs.onrender.com/verify" /**https://my-portfolio-expressjs.onrender.com/verify/ */,
                     {
                         token: token,
                         username: username,

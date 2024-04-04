@@ -21,9 +21,7 @@ function App() {
     const isAdminRoute = location.pathname.includes("/admin");
 
     return (
-        /* <div className="font-[MyFont]">
-            <Sidenav />
-        </div> */
+
 
         <div className=" mx-auto h-screen font-[MyFont]">
             {!isAdminRoute ? <Header /> : undefined}

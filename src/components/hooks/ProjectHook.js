@@ -6,7 +6,7 @@ export const useProjects = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get("https://my-portfolio-expressjs.onrender.com/projects/").then((response) => {
+        axios.get("https://my-portfolio-expressjs.onrender.com/projects/").then((response) => { /**https://my-portfolio-expressjs.onrender.com/projects/ */
             setProjects(response.data);
             setLoading(false);
         });

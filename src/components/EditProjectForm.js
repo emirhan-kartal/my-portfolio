@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import ProjectForm from "./ProjectForm";
-import { useProjects } from "./ProjectHook";
+import { useProjects } from "./hooks/ProjectHook";
 
 export default function EditProjectForm() {
     const params = useParams();
