@@ -1,0 +1,26 @@
+import { useEffect, useRef } from "react";
+
+export default function useScrollHeaderHide() {
+    const ref = useRef();
+    useEffect(() => {
+        let lastScroll = 0;
+        console.log("useScrollHeaderHide")
+        const handleScroll = () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                ref.current.style.top = "0";
+            } else if (currentScroll > lastScroll) {
+                ref.current.style.top = "-100px";
+            } else {
+                ref.current.style.top = "0";
+            }
+            lastScroll = currentScroll;
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll",handleScroll);
+        };
+    }, []);
+
+    return ref;
+}

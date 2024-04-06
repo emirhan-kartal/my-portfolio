@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useClickOutside from "./hooks/OutsideClickHook";
+import useScrollHeaderHide from "./hooks/useScrollHeaderHide";
 function Header() {
     const [sideNavVisible, setSideNavVisible] = useState(false);
-
+    const headerRef = useScrollHeaderHide();
     const ref = useClickOutside(() => setSideNavVisible(false), sideNavVisible);
     return (
         <header
             className="flex items-center justify-between fixed w-full 
-        px-6 py-4 top-0 bg-[#10294C] z-10"
+        px-6 py-4 top-0 bg-[#10294C] z-10 transition-[top] duration-500"
+        ref={headerRef}
         >
             <h1 className="text-white text-4xl">
                 <abbr title="EMIRHAN KARTAL" className="no-underline">

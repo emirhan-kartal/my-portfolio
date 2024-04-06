@@ -16,37 +16,42 @@ export default function ProjectCard({
         <Link
             to={toPath}
             state={to.state}
-            style={{ backgroundImage: `url(${imageSrc})` }}
+            //style={{ backgroundImage: `url(${imageSrc})` }}
             className={
-                `h-[400px] w-11/12 bg-cover p-5 text-white flex
-            flex-col justify-end rounded-md lg:w-full transition duration-300 
-            hover:scale-[100.5%] cursor-pointer ` +
-                (layout === "admin"
+                `h-[400px] w-11/12 bg-cover text-white flex
+            flex-col justify-start rounded-xl lg:w-full transition duration-300 
+            hover:scale-[100.5%] cursor-pointer bg-special-blue ` +
+                (isAdmin
                     ? "  !text-blue-700 bg-good-gray hover:bg-white border-2 border-black !h-[10%] w-full justify-center rounded-sm  "
                     : "") +
                 className
             }
         >
-            <h2
-                className={
-                    "text-3xl font-bold  text-stroke-3" +
-                    (layout === "admin" ? "text-xl " : "")
-                }
-            >
-                {title}
-            </h2>
-            <h3
-                className={
-                    "text-lg text-gray-300 " +
-                    (layout === "admin" ? "text-md " : "")
-                }
-            >
-                {label}
-            </h3>
-            <h4 className={"text-lg  " + (layout === "admin") && " hidden"}>
-                Click to see details
-            </h4>
-
+            <img
+                src={imageSrc}
+                style={({ width: "50%" }, { height: "300px" })}
+                className="rounded-xl"
+            />
+            <div className="p-4">
+                <h2
+                    className={
+                        "text-3xl font-bold " +
+                        (isAdmin ? "text-xl " : "")
+                    }
+                >
+                    {title}
+                </h2>
+                <h3
+                    className={
+                        "text-lg text-gray-300 " + (isAdmin ? "text-md " : "")
+                    }
+                >
+                    {label}
+                </h3>
+                <h4 className={"text-lg  " + isAdmin && " hidden"}>
+                    Click to see details
+                </h4>
+            </div>
         </Link>
     );
 }
