@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import HeaderTitle from "../HeaderTitle";
-
+import { useController, useForm } from "react-hook-form";
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission logic here
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isDirty, dirtyFields },
+    } = useForm();
+    console.log(errors);
+    const onSubmit = (data) => {
+        console.log(data);
     };
-
     return (
         <>
             <HeaderTitle title="Contact me" />
@@ -20,40 +20,46 @@ const Contact = () => {
                 <div className="h-10/12 w-11/12 mx-auto">
                     <h2 className="text-4xl mb-7">Message</h2>
                     <form
-                        onSubmit={handleSubmit}
+                        onSubmit={handleSubmit(onSubmit)}
                         className="flex flex-col items-center gap-y-4"
                     >
                         <Input
                             label="name"
                             placeholder="Name"
                             type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            {...register("name", { required: true })}
+                            error={errors.name && dirtyFields.name}
                         />
+
                         <Input
                             label="email"
                             placeholder="Email"
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            {...register("email", { required: true })}
+                            error={errors.email && dirtyFields.email}
+                        />
+                        <Input
+                            label="title"
+                            placeholder="Title"
+                            type="text"
+                            {...register("title", { required: true })}
+                            error={errors.title && dirtyFields.title}
                         />
                         <textarea
                             label="message"
                             placeholder="Message"
-                            value={message}
-                            className="h-40 resize-none w-full border-gray-200 border-2 rounded-sm p-2"
-                            onChange={(e) => setMessage(e.target.value)}
+                            className={"h-40 resize-none w-full border-gray-200 border-2 rounded-sm p-2 " + (errors.message && dirtyFields.message && " border-red-500")}
+                            {...register("message", { required: true })}
+                            isValid={errors.message}
                         />
-
+                        <button type="submit">Press</button>
                         <Button
-                            type="red"
+                            type="submit"
                             text="Send"
                             className="!w-3/4 text-white ml-auto"
                         />
                     </form>
-
                 </div>
-
             </section>
         </>
     );

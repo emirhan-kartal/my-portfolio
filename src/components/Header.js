@@ -63,6 +63,13 @@ function Header() {
                         Portfolio
                     </Link>
                     <Link
+                        to="/blog"
+                        className="nav-btn"
+                        onClick={() => setSideNavVisible(false)}
+                    >
+                        Blog
+                    </Link>
+                    <Link
                         to="/contact"
                         className="nav-btn"
                         onClick={() => setSideNavVisible(false)}

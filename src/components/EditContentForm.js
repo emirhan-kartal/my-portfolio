@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import ProjectForm from "./ProjectForm";
 import { useProjects } from "./hooks/ProjectHook";
+import { ContentForm } from "./index";
 
-export default function EditProjectForm() {
+export default function EditContentForm() {
     const params = useParams();
     const projectId = params.projectId;
     const [projects, loading] = useProjects();
@@ -16,5 +16,5 @@ export default function EditProjectForm() {
     if (!project) {
         return <div>Error: Project not found.</div>;
     }
-    return <ProjectForm project={project} />;
+    return <ContentForm project={project} />;
 }

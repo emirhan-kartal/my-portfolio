@@ -4,12 +4,12 @@ export default function useScrollHeaderHide() {
     const ref = useRef();
     useEffect(() => {
         let lastScroll = 0;
-        console.log("useScrollHeaderHide")
+        console.log("useScrollHeaderHide");
         const handleScroll = () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                ref.current.style.top = "0";
-            } else if (currentScroll > lastScroll) {
+            const currentScroll = window.scrollY;
+            console.log(currentScroll);
+
+            if (currentScroll > lastScroll) {
                 ref.current.style.top = "-100px";
             } else {
                 ref.current.style.top = "0";
@@ -18,7 +18,7 @@ export default function useScrollHeaderHide() {
         };
         window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener("scroll",handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 

@@ -1,10 +1,12 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-import projectFormReducer from "./reducers/projectFormReducer";
-const ProjectForm = ({ project }) => {
+import projectFormReducer from "./reducers/contentFormReducer";
+const ContentForm = ({ project }) => {
+    const { contentType } = useParams();
+
     const [state, dispatch] = useReducer(projectFormReducer, {
         title: "",
         label: "",
@@ -15,6 +17,7 @@ const ProjectForm = ({ project }) => {
     });
 
     const navigate = useNavigate();
+
     useEffect(() => {
         if (project) {
             dispatch({
@@ -43,18 +46,21 @@ const ProjectForm = ({ project }) => {
             });
         }
     }, [project]);
+    if (contentType !== "projects" || contentType !== "blogs") {
+        return <div>Error: Invalid content type.</div>;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const {title, label, imageLink, tags, content, id} = state;
+        const { title, label, imageLink, tags, content, id } = state;
         const projectJson = { title, label, imageLink, tags, content, id };
         console.log(projectJson);
         const componentType = project ? "edit" : "add";
         if (project) {
             axios
                 .post(
-                    "https://my-portfolio-expressjs.onrender.com/projects/" +/** */
-                        componentType,
+                    `"https://my-portfolio-expressjs.onrender.com/${contentType}/" +/** */
+                        componentType`,
                     { projectJson }
                 )
                 .then((response) => {
@@ -64,7 +70,10 @@ const ProjectForm = ({ project }) => {
                 });
         } else {
             axios
-                .post("https://my-portfolio-expressjs.onrender.com/projects/add", { projectJson })
+                .post(
+                    `https://my-portfolio-expressjs.onrender.com/${contentType}/add`,
+                    { projectJson }
+                )
                 .then((response) => {
                     if (response.status === 200) {
                         alert("Project added successfully");
@@ -78,7 +87,10 @@ const ProjectForm = ({ project }) => {
     const handleDelete = (e) => {
         e.preventDefault();
         axios
-            .post("https://my-portfolio-expressjs.onrender.com/projects/delete", { id: state.id})
+            .post(
+                "https://my-portfolio-expressjs.onrender.com/projects/delete",
+                { id: state.id }
+            )
             .then((response) => {
                 if (response.status === 200) {
                     alert("Project deleted successfully");
@@ -88,7 +100,6 @@ const ProjectForm = ({ project }) => {
     };
 
     return (
-
         <div className="flex flex-col w-full items-center">
             <form
                 onSubmit={handleSubmit}
@@ -164,4 +175,4 @@ const ProjectForm = ({ project }) => {
     );
 };
 
-export default ProjectForm;
+export default ContentForm;

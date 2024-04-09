@@ -11,11 +11,12 @@ const useClickOutside = (callback, state) => {
         };
         if (state) {
             document.addEventListener("click", handleClick);
-
-            return () => {
-                document.removeEventListener("click", handleClick);
-            };
+        } else {
+            document.removeEventListener("click", handleClick);
         }
+        return () => {
+            document.removeEventListener("click", handleClick);
+        };
     }, [state]);
     return ref;
 };

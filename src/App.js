@@ -10,11 +10,11 @@ import {
     ProjectDetails,
     LoginForm,
     AdminPanel,
-    EditProjectForm,
+    EditContentForm,
 } from "./components/index";
 import { Routes, Route, useLocation } from "react-router";
 
-import { ProjectForm, ProjectList } from "./components";
+import { ContentForm, ProjectList } from "./components";
 
 function App() {
     const location = useLocation();
@@ -47,15 +47,15 @@ function App() {
                     path="/admin/projects/:projectId" //this is editing
                     element={
                         <AdminPanel>
-                            <EditProjectForm />
+                            <EditContentForm />
                         </AdminPanel>
                     }
                 />
                 <Route
-                    path="/admin/projects/add"
+                    path="/admin/:contentType/add"
                     element={
                         <AdminPanel>
-                            <ProjectForm />
+                            <ContentForm />
                         </AdminPanel>
                     }
                 />
@@ -75,6 +75,8 @@ function App() {
                         </AdminPanel>
                     }
                 />
+                
+                
                 <Route path="/login" element={<LoginForm />} />
             </Routes>
             {!isAdminRoute && <ContactSection />}{" "}
