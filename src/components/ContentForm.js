@@ -46,7 +46,8 @@ const ContentForm = ({ project }) => {
             });
         }
     }, [project]);
-    if (contentType !== "projects" || contentType !== "blogs") {
+    console.log(contentType !== "projects" || contentType !== "blogs")
+    if (contentType !== "projects" && contentType !== "blogs") {
         return <div>Error: Invalid content type.</div>;
     }
 
@@ -59,7 +60,7 @@ const ContentForm = ({ project }) => {
         if (project) {
             axios
                 .post(
-                    `"https://my-portfolio-expressjs.onrender.com/${contentType}/" +/** */
+                    `"http://localhost:3001/${contentType}/" +/** */
                         componentType`,
                     { projectJson }
                 )
@@ -71,7 +72,7 @@ const ContentForm = ({ project }) => {
         } else {
             axios
                 .post(
-                    `https://my-portfolio-expressjs.onrender.com/${contentType}/add`,
+                    `http://localhost:3001/${contentType}/add`,
                     { projectJson }
                 )
                 .then((response) => {
@@ -88,7 +89,7 @@ const ContentForm = ({ project }) => {
         e.preventDefault();
         axios
             .post(
-                "https://my-portfolio-expressjs.onrender.com/projects/delete",
+                "http://localhost:3001/projects/delete",
                 { id: state.id }
             )
             .then((response) => {
@@ -103,7 +104,7 @@ const ContentForm = ({ project }) => {
         <div className="flex flex-col w-full items-center">
             <form
                 onSubmit={handleSubmit}
-                className="flex items-center justify-center flex-col w-full px-4 h-1/2 my-auto gap-y-2"
+                className="flex items-center justify-center flex-col w-full px-4 min-h-1/2 my-auto gap-y-2"
             >
                 <Input
                     type="text"

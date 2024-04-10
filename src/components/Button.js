@@ -4,11 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 function ButtonTypeProperties(type) {
-    if (type === "transparent")
-        return "bg-transparent border-gray-50 border-2 border-solid ";
-    else if (type === "red" || type === "submit") return "bg-red-button ";
-    else if (type === "social") {
-        return " ";
+    switch (type) {
+        case "transparent":
+            return "bg-transparent border-gray-50 border-2 border-solid ";
+        case "red":
+            return "bg-red-button ";
+        case "submit":
+            return "bg-red-button ";
+        case "social":
+            return " ";
     }
 }
 
@@ -45,14 +49,14 @@ export default function Button({
             <Link
                 to={to}
                 className={
-                    " w-full md:flex md:items-center transition duration-500 hover:bg-white group rounded-lg " +
-                    (chosenButton === this ? " bg-whit text-blue-700" : "") +
+                    " w-full md:flex md:items-center h-auto  group rounded-lg " +
+                    (chosenButton === this ? " bg-whit3 text-blue-700" : " ") +
                     className
                 }
             >
                 <FontAwesomeIcon
                     icon={icon}
-                    className="admin-icon text-white group-hover:text-blue-700"
+                    className="admin-icon text-white group-hover:text-blue-700 transition duration-500 hover:bg-white "
                     aria-label="icon-with-link"
                 />{" "}
                 <div className="hidden md:block text-white group-hover:text-blue-700">
@@ -64,7 +68,11 @@ export default function Button({
         return (
             <a href={href} target="_blank">
                 {" "}
-                <img src={icon} className="h-12 w-12 bg-cover" alt="redirecting-icon" />
+                <img
+                    src={icon}
+                    className="h-12 w-12 bg-cover"
+                    alt="redirecting-icon"
+                />
             </a>
         );
     }

@@ -16,5 +16,5 @@ export default function EditContentForm() {
     if (!project) {
         return <div>Error: Project not found.</div>;
     }
-    return <ContentForm project={project} />;
+    return <ContentForm project={project}  />;
 }

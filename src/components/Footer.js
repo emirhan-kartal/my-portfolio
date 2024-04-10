@@ -5,19 +5,22 @@ export default function Footer() {
     return (
         <footer
             className="bg-special-blue min-h-[500px] max-h-[944px]
-         w-screen text-white pt-20 pb-4 px-5 flex flex-col"
+         w-screen text-white pt-20 pb-4 flex flex-col"
         >
-            <h1 className="text-4xl mb-8">
-                <abbr title="EMIRHAN KARTAL" className="no-underline">
-                    EMIRHAN K.
-                </abbr>
-            </h1>
+            <div className="w-10/12 mx-auto">
+                <div className="flex flex-col">
+                    <h1 className="text-4xl mb-4">
+                        <abbr title="EMIRHAN KARTAL" className="no-underline">
+                            EMIRHAN K.
+                        </abbr>
+                    </h1>
 
-            <span className="mb-4 text-2xl">+90 542 249 87 29</span>
-            <span className="mb-8 text-xl">e.kartal115@gmail.com</span>
-            <span className="mb-16 text-xl">Antalya,Turkiye</span>
+                    <span className="mb-4 text-lg">+90 542 249 87 29</span>
+                    <span className="mb-4 text-lg">e.kartal115@gmail.com</span>
+                    <span className="mb-8 text-lg">Antalya,Turkiye</span>
+                </div>
+            </div>
             <hr />
-
             <div className="flex gap-x-4 mt-10 mb-6 self-center">
                 <Button
                     type="social"

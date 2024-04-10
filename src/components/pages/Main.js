@@ -25,7 +25,7 @@ function Main() {
                             type="transparent"
                             onClick={() => {
                                 axios({
-                                    url: "https://my-portfolio-expressjs.onrender.com/cv",
+                                    url: "http://localhost:3001/cv",
                                     method: "GET",
                                     responseType: "blob", // Important
                                 }).then((response) => {

@@ -8,8 +8,9 @@ export default function useScrollHeaderHide() {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
             console.log(currentScroll);
-
-            if (currentScroll > lastScroll) {
+            if (currentScroll === 0) {
+                ref.current.style.top = "0";
+            } else if (currentScroll > lastScroll) {
                 ref.current.style.top = "-100px";
             } else {
                 ref.current.style.top = "0";

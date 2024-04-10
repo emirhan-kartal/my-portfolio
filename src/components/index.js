@@ -21,3 +21,4 @@ export { default as BlogDetails } from "./pages/BlogDetails";
 export { default as SpinningAnimation } from "./SpinningAnimation";
 export {default as ContentList} from "./ContentList";
 export {default as Pagination} from "./Pagination";
+export {default as Blog} from "./pages/Blog";

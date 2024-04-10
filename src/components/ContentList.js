@@ -11,7 +11,7 @@ export default function ContentList({
     const toReturn = (
         <>
             {elements.length === 0 && !loading ? (
-                <h1 className="text-4xl">No elements yet.</h1>
+                <h1 className="text-4xl text-center">No elements yet.</h1>
             ) : (
                 loading && <SpinningAnimation />
             )}

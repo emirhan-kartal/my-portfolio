@@ -43,7 +43,8 @@ const AdminPanel = ({ children }) => {
                         <Button
                             type="admin-icon"
                             icon={faChartLine}
-                            text=""
+                            text="Blogs"
+                            to ="/admin/blog/"
                             chosenButton={chosenButton}
                         />
                     </li>
