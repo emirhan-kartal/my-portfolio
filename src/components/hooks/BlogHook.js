@@ -4,7 +4,7 @@ import axios from "axios";
 export const useBlogs = (id,limit) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
-    let getRequest = "http://localhost:3001/blogs";
+    let getRequest = "https://my-portfolio-expressjs.onrender.com/blogs";
     console.log(id);
     if (id) {
         getRequest += "/" + id;

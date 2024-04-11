@@ -42,6 +42,7 @@ const Contact = () => {
                             label="title"
                             placeholder="Title"
                             type="text"
+                            
                             {...register("title", { required: true })}
                             error={errors.title && dirtyFields.title}
                         />

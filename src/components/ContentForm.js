@@ -60,7 +60,7 @@ const ContentForm = ({ project }) => {
         if (project) {
             axios
                 .post(
-                    `"http://localhost:3001/${contentType}/" +/** */
+                    `"https://my-portfolio-expressjs.onrender.com/${contentType}/" +/** */
                         componentType`,
                     { projectJson }
                 )
@@ -72,7 +72,7 @@ const ContentForm = ({ project }) => {
         } else {
             axios
                 .post(
-                    `http://localhost:3001/${contentType}/add`,
+                    `https://my-portfolio-expressjs.onrender.com/${contentType}/add`,
                     { projectJson }
                 )
                 .then((response) => {
@@ -89,7 +89,7 @@ const ContentForm = ({ project }) => {
         e.preventDefault();
         axios
             .post(
-                "http://localhost:3001/projects/delete",
+                "https://my-portfolio-expressjs.onrender.com/projects/delete",
                 { id: state.id }
             )
             .then((response) => {

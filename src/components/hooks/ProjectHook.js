@@ -4,7 +4,7 @@ import axios from "axios";
 export const useProjects = (id, limit) => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
-    let getRequest = "http://localhost:3001/projects";
+    let getRequest = "https://my-portfolio-expressjs.onrender.com/projects";
     console.log(id)
     if (id) {
         getRequest += "/" + id;
